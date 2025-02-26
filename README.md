@@ -55,7 +55,8 @@ Customer Lifetime Value (CLV) for each segment.
 
 
 Histogram of Customer Spending:
-![image](https://github.com/user-attachments/assets/b2e0372a-6ace-4074-9c1b-b97878532e96)
+![image](https://github.com/user-attachments/assets/fc715baa-17eb-4f2d-a831-359f80f5e2e8)
+
 
 
 
