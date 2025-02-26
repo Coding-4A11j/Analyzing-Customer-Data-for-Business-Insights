@@ -1,0 +1,2 @@
+# Remove rows with negative quantities or prices
+df = df[(df['Quantity'] > 0) & (df['UnitPrice'] > 0)]
