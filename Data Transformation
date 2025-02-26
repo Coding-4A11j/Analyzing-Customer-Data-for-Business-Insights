@@ -1,0 +1,8 @@
+   Create New Variables
+
+df['TotalPrice'] = df['Quantity'] * df['UnitPrice']
+
+Extract Time-Based Features:
+df['Year'] = df['InvoiceDate'].dt.year
+df['Month'] = df['InvoiceDate'].dt.month
+df['DayOfWeek'] = df['InvoiceDate'].dt.dayofweek
