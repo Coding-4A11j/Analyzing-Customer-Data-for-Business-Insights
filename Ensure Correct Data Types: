@@ -1,0 +1,1 @@
+df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'])
