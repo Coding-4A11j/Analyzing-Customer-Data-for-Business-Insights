@@ -1,0 +1,24 @@
+RFM Analysis:
+from datetime import timedelta
+
+# Calculate Recency, Frequency, and Monetary Value
+snapshot_date = df['InvoiceDate'].max() + timedelta(days=1)
+rfm = df.groupby('CustomerID').agg({
+    'InvoiceDate': lambda x: (snapshot_date - x.max()).days,  # Recency
+    'InvoiceNo': 'nunique',  # Frequency
+    'TotalPrice': 'sum'  # Monetary Value
+})
+rfm.columns = ['Recency', 'Frequency', 'Monetary']
+
+
+K-Means Clustering:
+
+from sklearn.cluster import KMeans
+
+# Normalize RFM values
+rfm_log = rfm.apply(np.log, axis=1).fillna(0)
+kmeans = KMeans(n_clusters=4, random_state=42)
+rfm['Cluster'] = kmeans.fit_predict(rfm_log)
+
+# Analyze clusters
+print(rfm.groupby('Cluster').mean())
