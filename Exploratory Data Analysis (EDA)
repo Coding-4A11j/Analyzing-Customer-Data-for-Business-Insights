@@ -1,0 +1,30 @@
+Summary Statistics:
+print(df.describe())
+
+Correlation Matrix:
+corr_matrix = df[['Quantity', 'UnitPrice', 'TotalPrice']].corr()
+sns.heatmap(corr_matrix, annot=True, cmap='coolwarm')
+plt.show()
+
+Visualizations:
+
+Histogram of Customer Spending:
+sns.histplot(df['TotalPrice'], bins=50, kde=True)
+plt.title('Distribution of Customer Spending')
+plt.show()
+
+Most Popular Products:
+top_products = df['Description'].value_counts().head(10)
+sns.barplot(x=top_products.index, y=top_products.values)
+plt.title('Top 10 Most Popular Products')
+plt.xticks(rotation=90)
+plt.show()
+
+Sales Trends Over Time:
+
+df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'])
+df.set_index('InvoiceDate', inplace=True)
+monthly_sales = df['TotalPrice'].resample('M').sum()
+monthly_sales.plot()
+plt.title('Monthly Sales Trends')
+plt.show()
