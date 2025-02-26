@@ -1,0 +1,3 @@
+Calculate CLV Using RFM:
+
+rfm['CLV'] = 0.5 * rfm['Recency'] + 0.3 * rfm['Frequency'] + 0.2 * rfm['Monetary']
